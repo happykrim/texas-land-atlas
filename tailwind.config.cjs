@@ -1,0 +1,1 @@
+module.exports = { darkMode: 'class', content: ['./client/index.html','./client/src/**/*.{ts,tsx}'], theme:{extend:{fontFamily:{sans:['Inter','ui-sans-serif','system-ui','sans-serif']},colors:{brand:{50:'#effaf7',100:'#d8f1e8',500:'#278f79',600:'#187d6a',700:'#146858'}},boxShadow:{soft:'0 10px 35px rgba(23,33,49,0.055)'}}}, plugins:[] };

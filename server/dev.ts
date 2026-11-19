@@ -1,0 +1,12 @@
+import 'dotenv/config';
+import express from 'express';
+import {withApi} from './core.js';
+import {config,counties,report} from './routes.js';
+const app=express();
+app.disable('x-powered-by');
+app.get('/api/config',withApi(config));
+app.get('/api/counties',withApi(counties));
+app.get('/api/report',withApi(report));
+app.get('/api/health',(_req,res)=>res.json({ok:true}));
+const port=Number(process.env.PORT||3001);
+app.listen(port,()=>console.log(`TxGIO API running at http://localhost:${port} (auth ${process.env.AUTH_ENABLED==='true'?'on':'off'})`));
