@@ -41,5 +41,5 @@ export async function latestReport(db:SupabaseClient,county:string,fields:string
   const {data,error}=await db.from('txgio_county_reports').select(fields).eq('county_id',county).eq('status','ready').order('tax_year',{ascending:false}).order('version',{ascending:false}).limit(1).maybeSingle();
   if(error) throw error;
   if(!data) throw Object.assign(new Error('No completed report exists for this county.'),{status:404});
-  return data as Record<string,unknown>;
+  return data as unknown as Record<string, unknown>
 }
